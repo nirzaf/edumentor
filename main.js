@@ -207,23 +207,116 @@ function animateCounters() {
     });
 }
 
-// Add hover effects to feature cards
+// Create and animate particles for feature cards
+function createParticles(container) {
+    const particlesContainer = container.querySelector('.particles');
+    const numParticles = 15;
+    
+    // Clear existing particles
+    particlesContainer.innerHTML = '';
+    
+    for (let i = 0; i < numParticles; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'absolute w-2 h-2 bg-white rounded-full';
+        
+        // Random initial position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.opacity = '0';
+        
+        particlesContainer.appendChild(particle);
+        
+        // Animate each particle
+        const animation = particle.animate([
+            {
+                transform: `translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px) scale(0)`,
+                opacity: 0
+            },
+            {
+                transform: `translate(${Math.random() * 80 - 40}px, ${Math.random() * 80 - 40}px) scale(1)`,
+                opacity: 0.5,
+                offset: 0.5
+            },
+            {
+                transform: `translate(${Math.random() * 120 - 60}px, ${Math.random() * 120 - 60}px) scale(0)`,
+                opacity: 0
+            }
+        ], {
+            duration: 2000 + Math.random() * 1000,
+            iterations: Infinity,
+            delay: Math.random() * 1000
+        });
+    }
+}
+
+// Enhanced feature cards interaction
 function initializeFeatureCards() {
     const cards = document.querySelectorAll('.feature-card');
     
     cards.forEach(card => {
+        // Create particles on hover
         card.addEventListener('mouseenter', () => {
-            // Add subtle animation to icon
-            const icon = card.querySelector('.icon-wrapper');
-            icon.style.transform = 'scale(1.1) rotate(5deg)';
+            createParticles(card);
+            
+            // Add magnetic effect to icon
+            const icon = card.querySelector('.icon-container');
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const deltaX = (x - centerX) / 15;
+                const deltaY = (y - centerY) / 15;
+                
+                icon.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.1)`;
+            });
         });
 
+        // Reset icon position on mouse leave
         card.addEventListener('mouseleave', () => {
-            const icon = card.querySelector('.icon-wrapper');
-            icon.style.transform = 'scale(1) rotate(0)';
+            const icon = card.querySelector('.icon-container');
+            icon.style.transform = 'translate(0, 0) scale(1)';
+        });
+
+        // Add ripple effect on click
+        card.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'absolute bg-white/30 rounded-full pointer-events-none';
+            const rect = card.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+            card.appendChild(ripple);
+
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
         });
     });
 }
+
+// Add styles for ripple animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes ripple {
+        from {
+            transform: scale(0);
+            opacity: 1;
+        }
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    .feature-card .absolute {
+        animation: ripple 1s linear;
+    }
+`;
+document.head.appendChild(style);
 
 // Initialize animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

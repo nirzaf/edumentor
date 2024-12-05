@@ -108,81 +108,126 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Expert Tutors Card -->
-                <div class="feature-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <div class="icon-wrapper mb-6 relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl transform hover:rotate-12 transition-transform duration-300">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                <div class="feature-card group bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden cursor-pointer">
+                    <!-- Background Animation -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="card-content relative z-10">
+                        <!-- Floating Particles -->
+                        <div class="particles absolute inset-0 opacity-0 group-hover:opacity-100"></div>
+                        
+                        <!-- Icon Container -->
+                        <div class="icon-wrapper mb-6 relative">
+                            <div class="glow absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-0 group-hover:opacity-75 transition-all duration-500"></div>
+                            <div class="icon-container relative w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl transform group-hover:scale-110 transition-all duration-500">
+                                <i class="fas fa-chalkboard-teacher transform group-hover:rotate-12 transition-transform duration-500"></i>
+                            </div>
                         </div>
+
+                        <!-- Content with Slide Effect -->
+                        <div class="content-slide transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">Expert Tutors</h3>
+                            <p class="text-gray-600 mb-6 group-hover:text-gray-800 transition-colors duration-300">Learn from qualified and experienced tutors who are passionate about teaching.</p>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    PhD & Masters qualified
+                                </li>
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-400">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Years of teaching experience
+                                </li>
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-500">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Industry professionals
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Hover Border Effect -->
+                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-600/50 rounded-xl transition-all duration-500"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Expert Tutors</h3>
-                    <p class="text-gray-600 mb-6">Learn from qualified and experienced tutors who are passionate about teaching.</p>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            PhD & Masters qualified
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Years of teaching experience
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Industry professionals
-                        </li>
-                    </ul>
                 </div>
 
                 <!-- Flexible Learning Card -->
-                <div class="feature-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <div class="icon-wrapper mb-6 relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-teal-600 rounded-full blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white text-3xl transform hover:rotate-12 transition-transform duration-300">
-                            <i class="fas fa-laptop"></i>
+                <div class="feature-card group bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden cursor-pointer">
+                    <!-- Background Animation -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-600/20 to-teal-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="card-content relative z-10">
+                        <!-- Floating Particles -->
+                        <div class="particles absolute inset-0 opacity-0 group-hover:opacity-100"></div>
+                        
+                        <!-- Icon Container -->
+                        <div class="icon-wrapper mb-6 relative">
+                            <div class="glow absolute -inset-1 bg-gradient-to-r from-green-600 to-teal-600 rounded-full blur opacity-0 group-hover:opacity-75 transition-all duration-500"></div>
+                            <div class="icon-container relative w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white text-3xl transform group-hover:scale-110 transition-all duration-500">
+                                <i class="fas fa-laptop transform group-hover:rotate-12 transition-transform duration-500"></i>
+                            </div>
                         </div>
+
+                        <!-- Content with Slide Effect -->
+                        <div class="content-slide transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-900 group-hover:text-green-600 transition-colors duration-300">Flexible Learning</h3>
+                            <p class="text-gray-600 mb-6 group-hover:text-gray-800 transition-colors duration-300">Study at your own pace with 24/7 access to learning resources.</p>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    24/7 access to materials
+                                </li>
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-400">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Self-paced learning
+                                </li>
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-500">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Mobile-friendly platform
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Hover Border Effect -->
+                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-green-600/50 rounded-xl transition-all duration-500"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Flexible Learning</h3>
-                    <p class="text-gray-600 mb-6">Study at your own pace with 24/7 access to learning resources.</p>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            24/7 access to materials
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Self-paced learning
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Mobile-friendly platform
-                        </li>
-                    </ul>
                 </div>
 
                 <!-- Interactive Sessions Card -->
-                <div class="feature-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <div class="icon-wrapper mb-6 relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-orange-600 to-pink-600 rounded-full blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl transform hover:rotate-12 transition-transform duration-300">
-                            <i class="fas fa-users"></i>
+                <div class="feature-card group bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden cursor-pointer">
+                    <!-- Background Animation -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="card-content relative z-10">
+                        <!-- Floating Particles -->
+                        <div class="particles absolute inset-0 opacity-0 group-hover:opacity-100"></div>
+                        
+                        <!-- Icon Container -->
+                        <div class="icon-wrapper mb-6 relative">
+                            <div class="glow absolute -inset-1 bg-gradient-to-r from-orange-600 to-pink-600 rounded-full blur opacity-0 group-hover:opacity-75 transition-all duration-500"></div>
+                            <div class="icon-container relative w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl transform group-hover:scale-110 transition-all duration-500">
+                                <i class="fas fa-users transform group-hover:rotate-12 transition-transform duration-500"></i>
+                            </div>
                         </div>
+
+                        <!-- Content with Slide Effect -->
+                        <div class="content-slide transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-900 group-hover:text-orange-600 transition-colors duration-300">Interactive Sessions</h3>
+                            <p class="text-gray-600 mb-6 group-hover:text-gray-800 transition-colors duration-300">Engage in interactive learning with real-time collaboration.</p>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Live interaction
+                                </li>
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-400">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Real-time doubt clearing
+                                </li>
+                                <li class="flex items-center transform translate-x-0 group-hover:translate-x-2 transition-transform duration-500">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Group discussions
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Hover Border Effect -->
+                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-orange-600/50 rounded-xl transition-all duration-500"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Interactive Sessions</h3>
-                    <p class="text-gray-600 mb-6">Engage in interactive learning with real-time collaboration.</p>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Live interaction
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Real-time doubt clearing
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Group discussions
-                        </li>
-                    </ul>
                 </div>
             </div>
 
