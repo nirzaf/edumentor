@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="text-gray-600 mb-4">${course.students} students enrolled</p>
                     <div class="flex justify-between items-center">
                         <span class="text-2xl font-bold text-blue-600">$${course.price}</span>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 enroll-btn">
                             Enroll Now
                         </button>
                     </div>
@@ -171,6 +171,96 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         pricingContainer.innerHTML += pricingCard;
     });
+});
+
+// Initialize course category buttons
+function initializeCourseCategoryButtons() {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+            
+            // Add active class to clicked button
+            button.classList.remove('bg-white', 'text-gray-700');
+            button.classList.add('bg-blue-600', 'text-white');
+        });
+    });
+}
+
+// Initialize course cards
+function initializeCourseCards() {
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    courseCards.forEach(card => {
+        // Add hover effect for enroll button
+        const enrollBtn = card.querySelector('.enroll-btn');
+        const cardImage = card.querySelector('img');
+        
+        // Parallax effect on card image
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const deltaX = (x - centerX) / 20;
+            const deltaY = (y - centerY) / 20;
+            
+            cardImage.style.transform = `scale(1.1) translate(${deltaX}px, ${deltaY}px)`;
+        });
+        
+        // Reset image position on mouse leave
+        card.addEventListener('mouseleave', () => {
+            cardImage.style.transform = 'scale(1) translate(0, 0)';
+        });
+        
+        // Add click animation to enroll button
+        enrollBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Add ripple effect
+            const ripple = document.createElement('div');
+            ripple.className = 'absolute bg-white/30 rounded-full pointer-events-none';
+            const rect = enrollBtn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+            enrollBtn.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => ripple.remove(), 1000);
+        });
+    });
+}
+
+// Initialize view all courses button
+function initializeViewAllButton() {
+    const viewAllBtn = document.querySelector('.view-all-btn');
+    
+    viewAllBtn.addEventListener('mouseenter', () => {
+        const icon = viewAllBtn.querySelector('.fas');
+        icon.style.transform = 'translateX(5px)';
+    });
+    
+    viewAllBtn.addEventListener('mouseleave', () => {
+        const icon = viewAllBtn.querySelector('.fas');
+        icon.style.transform = 'translateX(0)';
+    });
+}
+
+// Initialize all course section features
+document.addEventListener('DOMContentLoaded', () => {
+    initializeCourseCategoryButtons();
+    initializeCourseCards();
+    initializeViewAllButton();
 });
 
 // Animate stats counter when in view
