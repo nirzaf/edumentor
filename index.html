@@ -411,27 +411,507 @@
     </section>
 
     <!-- Tutors Section -->
-    <section id="tutors" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Meet Our Tutors</h2>
-                <p class="mt-4 text-gray-600">Learn from the best in their fields</p>
+    <section id="tutors" class="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-0 left-1/2 w-64 h-64 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-semibold mb-4">
+                    Expert Educators
+                </span>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Meet Our Expert Tutors</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Learn from the best minds in education. Our tutors are passionate about helping you succeed.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Tutor cards will be dynamically populated by JavaScript -->
+
+            <!-- Tutor Filter Categories -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="tutor-filter-btn px-6 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300">
+                    All Subjects
+                </button>
+                <button class="tutor-filter-btn px-6 py-2 rounded-full bg-white text-gray-700 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                    Mathematics
+                </button>
+                <button class="tutor-filter-btn px-6 py-2 rounded-full bg-white text-gray-700 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                    Physics
+                </button>
+                <button class="tutor-filter-btn px-6 py-2 rounded-full bg-white text-gray-700 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                    Chemistry
+                </button>
+                <button class="tutor-filter-btn px-6 py-2 rounded-full bg-white text-gray-700 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                    Biology
+                </button>
+            </div>
+
+            <!-- Tutors Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Tutor Card 1 -->
+                <div class="tutor-card group">
+                    <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
+                        <!-- Tutor Image Container -->
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" 
+                                 alt="Dr. Sarah Johnson" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-black/0 group-hover:via-black/30 group-hover:to-black/30 transition-all duration-500"></div>
+                            <!-- Social Links -->
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                            <!-- Quick Info -->
+                            <div class="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                <div class="flex justify-between items-center text-white">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.9 (2.3k Reviews)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-user-graduate"></i>
+                                        <span>15k+ Students</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tutor Info -->
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">Mathematics</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4 group-hover:text-purple-600 transition-colors duration-300">Dr. Sarah Johnson</h3>
+                            <p class="text-gray-600 mt-2">PhD in Applied Mathematics</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center space-x-1 text-gray-600">
+                                    <i class="fas fa-book-reader"></i>
+                                    <span>12 Courses</span>
+                                </div>
+                                <button class="book-session-btn px-4 py-2 bg-transparent text-purple-600 hover:bg-purple-600 hover:text-white rounded-lg border-2 border-purple-600 transition-all duration-300">
+                                    Book Session
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 2 -->
+                <div class="tutor-card group">
+                    <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
+                        <!-- Tutor Image Container -->
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" 
+                                 alt="Prof. Michael Chen" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-black/0 group-hover:via-black/30 group-hover:to-black/30 transition-all duration-500"></div>
+                            <!-- Social Links -->
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                            <!-- Quick Info -->
+                            <div class="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                <div class="flex justify-between items-center text-white">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.8 (1.8k Reviews)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-user-graduate"></i>
+                                        <span>12k+ Students</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tutor Info -->
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">Physics</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4 group-hover:text-blue-600 transition-colors duration-300">Prof. Michael Chen</h3>
+                            <p class="text-gray-600 mt-2">PhD in Quantum Physics</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center space-x-1 text-gray-600">
+                                    <i class="fas fa-book-reader"></i>
+                                    <span>10 Courses</span>
+                                </div>
+                                <button class="book-session-btn px-4 py-2 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg border-2 border-blue-600 transition-all duration-300">
+                                    Book Session
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 3 -->
+                <div class="tutor-card group">
+                    <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
+                        <!-- Tutor Image Container -->
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" 
+                                 alt="Dr. Emily Williams" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-black/0 group-hover:via-black/30 group-hover:to-black/30 transition-all duration-500"></div>
+                            <!-- Social Links -->
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                            <!-- Quick Info -->
+                            <div class="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                <div class="flex justify-between items-center text-white">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.9 (2.1k Reviews)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-user-graduate"></i>
+                                        <span>14k+ Students</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tutor Info -->
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Chemistry</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4 group-hover:text-green-600 transition-colors duration-300">Dr. Emily Williams</h3>
+                            <p class="text-gray-600 mt-2">PhD in Organic Chemistry</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center space-x-1 text-gray-600">
+                                    <i class="fas fa-book-reader"></i>
+                                    <span>8 Courses</span>
+                                </div>
+                                <button class="book-session-btn px-4 py-2 bg-transparent text-green-600 hover:bg-green-600 hover:text-white rounded-lg border-2 border-green-600 transition-all duration-300">
+                                    Book Session
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 4 -->
+                <div class="tutor-card group">
+                    <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
+                        <!-- Tutor Image Container -->
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" 
+                                 alt="Prof. David Brown" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-black/0 group-hover:via-black/30 group-hover:to-black/30 transition-all duration-500"></div>
+                            <!-- Social Links -->
+                            <div class="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                            <!-- Quick Info -->
+                            <div class="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                <div class="flex justify-between items-center text-white">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.8 (1.9k Reviews)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-user-graduate"></i>
+                                        <span>13k+ Students</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tutor Info -->
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">Biology</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4 group-hover:text-orange-600 transition-colors duration-300">Prof. David Brown</h3>
+                            <p class="text-gray-600 mt-2">PhD in Molecular Biology</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center space-x-1 text-gray-600">
+                                    <i class="fas fa-book-reader"></i>
+                                    <span>9 Courses</span>
+                                </div>
+                                <button class="book-session-btn px-4 py-2 bg-transparent text-orange-600 hover:bg-orange-600 hover:text-white rounded-lg border-2 border-orange-600 transition-all duration-300">
+                                    Book Session
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Tutors Button -->
+            <div class="text-center mt-12">
+                <button class="view-all-btn px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                    View All Tutors
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Simple, Transparent Pricing</h2>
-                <p class="mt-4 text-gray-600">Choose the plan that works best for you</p>
+    <section id="pricing" class="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 right-0 -translate-y-12 translate-x-12 blur-3xl opacity-20 pointer-events-none">
+            <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="200" r="200" fill="url(#pricing-gradient)" />
+                <defs>
+                    <linearGradient id="pricing-gradient" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#818CF8"/>
+                        <stop offset="1" stop-color="#C084FC"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-semibold mb-4">
+                    Pricing Plans
+                </span>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Choose the perfect plan that suits your learning needs. No hidden fees, cancel anytime.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pricing cards will be dynamically populated by JavaScript -->
+
+            <!-- Billing Toggle -->
+            <div class="flex justify-center items-center space-x-4 mb-12">
+                <span class="text-lg text-gray-600">Monthly</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="billing-toggle" class="sr-only peer">
+                    <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-indigo-600"></div>
+                </label>
+                <span class="text-lg text-gray-600">Annual <span class="text-sm text-indigo-600">(Save 20%)</span></span>
+            </div>
+
+            <!-- Pricing Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="pricing-card group">
+                    <div class="relative p-8 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <!-- Popular Badge -->
+                        <div class="absolute top-6 right-6">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-600">
+                                Popular
+                            </span>
+                        </div>
+                        <!-- Card Content -->
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Basic Plan</h3>
+                            <div class="flex justify-center items-baseline mb-8">
+                                <span class="price-amount text-5xl font-extrabold text-gray-900" data-monthly="29" data-annual="23">$29</span>
+                                <span class="text-gray-600 ml-2">/month</span>
+                            </div>
+                            <p class="text-gray-600 mb-8">Perfect for individual learners getting started</p>
+                        </div>
+                        <!-- Features List -->
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Access to 50+ courses</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>5 hours of private tutoring</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Basic progress tracking</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Email support</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-4 px-8 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors duration-300 transform hover:scale-[1.02]">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card group">
+                    <div class="relative p-8 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <!-- Best Value Badge -->
+                        <div class="absolute top-6 right-6">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white text-indigo-600">
+                                Best Value
+                            </span>
+                        </div>
+                        <!-- Card Content -->
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Pro Plan</h3>
+                            <div class="flex justify-center items-baseline mb-8">
+                                <span class="price-amount text-5xl font-extrabold text-white" data-monthly="49" data-annual="39">$49</span>
+                                <span class="text-white/90 ml-2">/month</span>
+                            </div>
+                            <p class="text-white/90 mb-8">Ideal for dedicated students seeking excellence</p>
+                        </div>
+                        <!-- Features List -->
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center space-x-3 text-white">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Access to all courses</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-white">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>15 hours of private tutoring</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-white">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Advanced progress tracking</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-white">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Priority support 24/7</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-white">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Personalized study plan</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-4 px-8 text-indigo-600 bg-white hover:bg-gray-50 rounded-lg transition-colors duration-300 transform hover:scale-[1.02]">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card group">
+                    <div class="relative p-8 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <!-- Card Content -->
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Enterprise Plan</h3>
+                            <div class="flex justify-center items-baseline mb-8">
+                                <span class="price-amount text-5xl font-extrabold text-gray-900" data-monthly="99" data-annual="79">$99</span>
+                                <span class="text-gray-600 ml-2">/month</span>
+                            </div>
+                            <p class="text-gray-600 mb-8">Custom solutions for organizations and institutions</p>
+                        </div>
+                        <!-- Features List -->
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Unlimited access to all content</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Unlimited tutoring hours</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Custom learning paths</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Dedicated account manager</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Custom reporting & analytics</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-gray-600">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>API access</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-4 px-8 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors duration-300 transform hover:scale-[1.02]">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-gray-900 text-center mb-8">Frequently Asked Questions</h3>
+                <div class="grid gap-6 max-w-3xl mx-auto">
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full p-6 text-left">
+                            <span class="text-lg font-semibold text-gray-900">Can I switch plans later?</span>
+                            <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-600">Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full p-6 text-left">
+                            <span class="text-lg font-semibold text-gray-900">What payment methods do you accept?</span>
+                            <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-600">We accept all major credit cards (Visa, MasterCard, American Express) and PayPal. For Enterprise plans, we also accept bank transfers.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="flex justify-between items-center w-full p-6 text-left">
+                            <span class="text-lg font-semibold text-gray-900">Is there a free trial available?</span>
+                            <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-600">Yes! We offer a 7-day free trial for all our plans. No credit card required during the trial period.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

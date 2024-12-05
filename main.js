@@ -263,6 +263,319 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeViewAllButton();
 });
 
+// Tutors Section Animations and Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Tutor Filter Buttons
+    const tutorFilterBtns = document.querySelectorAll('.tutor-filter-btn');
+    const tutorCards = document.querySelectorAll('.tutor-card');
+
+    tutorFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            tutorFilterBtns.forEach(b => {
+                b.classList.remove('bg-purple-600', 'text-white');
+                b.classList.add('bg-white', 'text-gray-700');
+            });
+            
+            // Add active class to clicked button
+            btn.classList.remove('bg-white', 'text-gray-700');
+            btn.classList.add('bg-purple-600', 'text-white');
+
+            // Get selected category
+            const category = btn.textContent.trim().toLowerCase();
+
+            // Filter tutor cards
+            tutorCards.forEach(card => {
+                const cardCategory = card.querySelector('span').textContent.trim().toLowerCase();
+                if (category === 'all subjects' || cardCategory === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Book Session Button Animation
+    const bookSessionBtns = document.querySelectorAll('.book-session-btn');
+    bookSessionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Create ripple effect
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            btn.appendChild(ripple);
+
+            // Get button position
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Set ripple position
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Animate tutor cards on scroll
+    const animateTutorCards = () => {
+        tutorCards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const isVisible = rect.top <= window.innerHeight * 0.85;
+
+            if (isVisible) {
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                }, index * 100);
+            }
+        });
+    };
+
+    // Initial check for visible cards
+    animateTutorCards();
+
+    // Check for new cards becoming visible on scroll
+    window.addEventListener('scroll', animateTutorCards);
+
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        .tutor-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .tutor-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: 0.3;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+// Pricing Section Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Monthly/Annual Toggle
+    const billingToggle = document.getElementById('billing-toggle');
+    const priceElements = document.querySelectorAll('.price-amount');
+    const periodLabels = document.querySelectorAll('.price-amount + span');
+
+    billingToggle.addEventListener('change', () => {
+        const isAnnual = billingToggle.checked;
+        
+        priceElements.forEach(element => {
+            const monthlyPrice = element.getAttribute('data-monthly');
+            const annualPrice = element.getAttribute('data-annual');
+            
+            // Animate price change
+            element.style.transform = 'translateY(-10px)';
+            element.style.opacity = '0';
+            
+            setTimeout(() => {
+                element.textContent = `$${isAnnual ? annualPrice : monthlyPrice}`;
+                element.style.transform = 'translateY(0)';
+                element.style.opacity = '1';
+            }, 200);
+        });
+
+        // Update period labels
+        periodLabels.forEach(label => {
+            label.textContent = isAnnual ? '/year' : '/month';
+        });
+    });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const button = item.querySelector('button');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('svg');
+        
+        button.addEventListener('click', () => {
+            const isOpen = answer.classList.contains('show');
+            
+            // Close all other FAQs
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    const otherIcon = otherItem.querySelector('svg');
+                    otherAnswer.classList.remove('show');
+                    otherAnswer.classList.add('hidden');
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            if (isOpen) {
+                answer.classList.remove('show');
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                answer.classList.add('show');
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    // Add hover effects to pricing cards
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    
+    pricingCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const angleX = (y - centerY) / 20;
+            const angleY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+    });
+
+    // Add ripple effect to buttons
+    const buttons = document.querySelectorAll('button:not(.faq-item button)');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const ripple = document.createElement('span');
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            ripple.classList.add('ripple-effect');
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+        .price-amount {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card {
+            transition: transform 0.5s ease;
+        }
+        
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 100px;
+            height: 100px;
+            margin-top: -50px;
+            margin-left: -50px;
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            from {
+                transform: scale(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-answer.show {
+            max-height: 200px;
+        }
+        
+        .faq-item button svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+    `;
+    document.head.appendChild(style);
+});
+
 // Animate stats counter when in view
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-counter [data-target]');
