@@ -173,6 +173,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Animate stats counter when in view
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-counter [data-target]');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000; // Animation duration in milliseconds
+        const step = target / (duration / 16); // Update every 16ms (60fps)
+        let current = 0;
+
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.textContent = Math.round(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+
+        // Start counter animation when element is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(counter);
+    });
+}
+
+// Add hover effects to feature cards
+function initializeFeatureCards() {
+    const cards = document.querySelectorAll('.feature-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add subtle animation to icon
+            const icon = card.querySelector('.icon-wrapper');
+            icon.style.transform = 'scale(1.1) rotate(5deg)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            const icon = card.querySelector('.icon-wrapper');
+            icon.style.transform = 'scale(1) rotate(0)';
+        });
+    });
+}
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    animateCounters();
+    initializeFeatureCards();
+    
+    // Smooth scrolling for navigation links (previously defined)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
 // Mobile menu toggle
 const mobileMenuButton = document.querySelector('.mobile-menu-button');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -182,13 +250,3 @@ if (mobileMenuButton && mobileMenu) {
         mobileMenu.classList.toggle('hidden');
     });
 }
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
